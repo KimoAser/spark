@@ -2,11 +2,20 @@ const heroHeadings = document.querySelector(".hero_headings")
 const scroller = document.querySelectorAll(".clients_scroller")
 const upperFeatures = document.querySelectorAll(".upper_feature")
 const lowerFeatures = document.querySelectorAll(".lower_feature")
-let valueDisplays = document.querySelectorAll(".num")
 const firstPin = document.querySelector(".pinned_container_first")
 const secondPin = document.querySelector(".pinned_container_second")
 const thirdPin = document.querySelector(".pinned_container_third")
 const fourthPin = document.querySelector(".pinned_container_fourth")
+const track = document.querySelector('.slider_container')
+const boxes = document.querySelectorAll('.slider_container_box')
+const btnPrv = document.querySelector('.prev')
+const btnNext = document.querySelector('.next')
+
+
+
+
+let valueDisplays = document.querySelectorAll(".num")
+let currentIndex = 0
 
 
 /*--hero section--*/ 
@@ -110,3 +119,41 @@ pinObserveFirst.observe(firstPin);
 pinObserveSecond.observe(secondPin);
 pinObserveThird.observe(thirdPin);
 pinObserveFourth.observe(fourthPin);
+
+
+/*testimonials section*/
+function updateSlider(){
+    const cardWidth = boxes[0].getBoundingClientRect().width
+    const styles = window.getComputedStyle(track)
+    const gap = parseFloat(styles.columnGap || styles.gap)|| 0
+    const width = cardWidth + gap
+    track.scrollTo({
+        left: currentIndex * width,
+        behavior:'smooth'
+    })
+}
+function getCardsPerView(){
+    if(window.innerWidth >= 1100) return 3
+    if(window.innerWidth >= 700) return 2
+    return 1
+}
+btnNext.addEventListener('click',()=>{
+    const step = getCardsPerView()
+    const maxIndex = boxes.length - step
+    if(currentIndex < maxIndex){
+        currentIndex += step
+        updateSlider()
+    }
+})
+btnPrv.addEventListener('click',()=>{
+    const step = getCardsPerView()
+    if(currentIndex > 0){
+        currentIndex -= step
+        if(currentIndex < 0) currentIndex = 0
+        updateSlider()
+    }
+})
+window.addEventListener('resize',()=>{
+    updateSlider()
+})
+
