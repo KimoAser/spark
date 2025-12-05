@@ -1,21 +1,74 @@
-const heroHeadings = document.querySelector(".hero_headings")
-const scroller = document.querySelectorAll(".clients_scroller")
-const upperFeatures = document.querySelectorAll(".upper_feature")
-const lowerFeatures = document.querySelectorAll(".lower_feature")
-const firstPin = document.querySelector(".pinned_container_first")
-const secondPin = document.querySelector(".pinned_container_second")
-const thirdPin = document.querySelector(".pinned_container_third")
-const fourthPin = document.querySelector(".pinned_container_fourth")
-const track = document.querySelector('.slider_container')
-const boxes = document.querySelectorAll('.slider_container_box')
+const logo = document.querySelector('.nav__logo')
+const menu = document.querySelector('.nav__menu')
+const hamburger = document.querySelector('.nav__button')
+const navItem = document.querySelectorAll('.nav__menu a')
+const heroHeadings = document.querySelector(".heading__title")
+const scroller = document.querySelectorAll(".clients__scroller")
+const upperFeatures = document.querySelectorAll(".features__upper--card")
+const lowerFeatures = document.querySelectorAll(".feature__lower--card")
+const firstPin = document.querySelector(".choosing__first")
+const secondPin = document.querySelector(".choosing__second")
+const thirdPin = document.querySelector(".choosing__third")
+const fourthPin = document.querySelector(".choosing__fourth")
+const track = document.querySelector('.testimonials__container')
+const boxes = document.querySelectorAll('.testimonials__box')
 const btnPrv = document.querySelector('.prev')
 const btnNext = document.querySelector('.next')
+const bulletContainer = document.querySelector('.testimonials__bullets')
+const accordion = document.getElementsByClassName ('accordion__box');
 
 
-
-
-let valueDisplays = document.querySelectorAll(".num")
+let valueDisplays = document.querySelectorAll(".counters__num")
 let currentIndex = 0
+let isForward = true
+
+
+/*--burger navigation--*/
+hamburger.addEventListener('click',(e)=>{
+    hamburger.classList.toggle('click')
+    e.stopPropagation()
+    logo.style.visibility = (logo.style.visibility === 'hidden') ? 'visible':'hidden'
+   if(!menu.classList.contains('show')){
+    menu.style.display = 'flex'
+    requestAnimationFrame(()=>{
+        menu.classList.add('show')
+    })
+   }
+   else {
+    closeMenu()
+   }
+})
+document.addEventListener('click',(e)=>{
+    if(menu.classList.contains('show') && !menu.contains(e.target) && !hamburger.contains(e.target)){
+        closeMenu()
+        hamburger.classList.remove('click')
+    }
+})
+navItem.forEach(link=>{
+    link.addEventListener('click',(e)=>{
+        e.preventDefault()
+        e.stopPropagation()
+        const targetID = link.getAttribute("href");
+        closeMenu(()=>{
+            hamburger.classList.remove('click')
+            document.querySelector(targetID).scrollIntoView({
+                behavior: "smooth"
+            });
+        })
+    })
+})
+function closeMenu(callback){
+    menu.classList.remove('show')
+    menu.addEventListener('transitionend',function hideOut(){
+        menu.style.display = 'none'
+        menu.removeEventListener('transitionend',hideOut)
+        if (callback) callback();
+    })
+    logo.style.visibility = 'visible'
+}
+
+
+
 
 
 /*--hero section--*/ 
@@ -34,7 +87,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
 function addAnimation(){
     scroller.forEach((scrollers)=>{
         scrollers.setAttribute("data-animated",true);
-        const scrollInner = scrollers.querySelector(".clients_scroller_inner");
+        const scrollInner = scrollers.querySelector(".clients__lists");
         const scrollerContent = Array.from(scrollInner.children);
         scrollerContent.forEach(item =>{
             const duplicatedItems = item.cloneNode(true);
@@ -65,7 +118,7 @@ let started = false;
 let observeCounter = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !started) {
-            started = true; // lock so it runs only once
+            started = true; 
 
             valueDisplays.forEach((valueDisplay) => {
                 let startValue = 0;
@@ -84,7 +137,8 @@ let observeCounter = new IntersectionObserver((entries) => {
 }, {
     rootMargin:"0px 0px -50px 0px"
 });
-observeCounter.observe(document.querySelector(".counters_container"));
+observeCounter.observe(document.querySelector(".counters__container"));
+
 
 /*--choose us pins--*/
 const pinObserveFirst = new IntersectionObserver((entries)=>{
@@ -143,6 +197,7 @@ btnNext.addEventListener('click',()=>{
     if(currentIndex < maxIndex){
         currentIndex += step
         updateSlider()
+        updateBullets()
     }
 })
 btnPrv.addEventListener('click',()=>{
@@ -151,9 +206,77 @@ btnPrv.addEventListener('click',()=>{
         currentIndex -= step
         if(currentIndex < 0) currentIndex = 0
         updateSlider()
+        updateBullets()
     }
 })
 window.addEventListener('resize',()=>{
     updateSlider()
+    createBullets()
+    updateBullets()
 })
 
+createBullets()
+updateBullets()
+
+function calculateTotalSlides(){
+    const step = getCardsPerView()
+    return Math.ceil(boxes.length/step)
+}
+function createBullets(){
+    bulletContainer.innerHTML = ""
+    totalSlides = calculateTotalSlides()
+    for(let i=0; i<totalSlides; i++){
+        const bullet = document.createElement('div')
+        bullet.classList.add('bullet')
+        if(i===0) bullet.classList.add('active')
+        bullet.addEventListener('click',()=>{
+            currentIndex = i * getCardsPerView()
+            updateSlider()
+            updateBullets()
+        })
+        bulletContainer.appendChild(bullet)
+    }
+}
+function updateBullets(){
+    const bullets = document.querySelectorAll('.bullet')
+    bullets.forEach(b => b.classList.remove('active'))
+    const slideNumber = Math.floor(currentIndex/getCardsPerView())
+    if(bullets[slideNumber]){
+        bullets[slideNumber].classList.add('active')
+    }
+}
+function autoPlay(){
+    const step = getCardsPerView()
+    const maxIndex = boxes.length - step
+    if(isForward){
+        currentIndex += step
+        if(currentIndex >=maxIndex){
+            currentIndex = maxIndex
+            isForward = false
+        }
+    }
+    else {
+        currentIndex -= step
+        if(currentIndex <=0){
+            currentIndex = 0
+            isForward = true
+        }
+    }
+    updateBullets()
+    updateSlider()
+}
+let autoPlayInterval = setInterval(autoPlay,5000)
+track.addEventListener('mouseenter',()=>{
+    clearInterval(autoPlayInterval)
+})
+track.addEventListener('mouseleave',()=>{
+    autoPlayInterval = setInterval(autoPlay,5000)
+})
+
+
+/*FAQ*/ 
+for (i=0; i<accordion.length; i++){
+    accordion[i].addEventListener('click',function(){
+        this.classList.toggle('active')
+    })
+}

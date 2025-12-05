@@ -7,14 +7,12 @@
     <title>Spark</title>
   </head>
   <body>
-      <section class="header-hero-section">
-        <!--navigation section-->
-        <header class="navigation"> 
-          <div class="navigation_logo">
-            <img src="./images/logo.png" alt="logo">
-          </div>
-          <nav class="navigation_header">
-            <ul class="navigation_items">
+      <section class="hero" id="hero">
+        <!--Navigation section-->
+        <header class="nav"> 
+          <a href="#hero"><img class="nav__logo" src="./images/logo.png" alt="logo"></a>
+          <nav class="nav__list">
+            <ul class="nav__items">
               <li><a href="#features">Features</a></li>
               <li><a href="#solutions">Solutions</a></li>
               <li><a href="#pricing">Pricing</a></li>
@@ -23,12 +21,35 @@
               <button>Get Started</button>
             </ul>
           </nav>
+          <button class="nav__button" aria-controls="primary-navigation" aria-expanded="false">
+            <svg class="nav__hamburger" viewBox="0 0 100 100" width="25">
+              <rect class="nav__top nav__line" width="80" height="10" x="10" y="25" rx="5"></rect>
+              <rect class="nav__middle nav__line" width="80" height="10" x="10" y="50" rx="5"></rect>
+              <rect class="nav__bottom nav__line" width="80" height="10" x="10" y="75" rx="5"></rect>
+            </svg>
+          </button>
+          <div class="nav__menu">
+            <ul>
+              <li><a href="#hero"><img class="nav__logo" src="./images/logo.png" alt="logo"></a></li>
+              <li><a href="#features">Features</a></li>
+              <div class="nav__border"></div>
+              <li><a href="#solutions">Solutions</a></li>
+              <div class="nav__border"></div>
+              <li><a href="#pricing">Pricing</a></li>
+              <div class="nav__border"></div>
+              <li><a href="#about">About</a></li>
+              <div class="nav__border"></div>
+              <li><a href="#contact">Contact</a></li>
+              <div class="nav__border"></div>
+              <button>Get Started</button>
+            </ul>
+          </div>
         </header>
-
-        <!--hero section-->
+        
+        <!--Heading section-->
         <section> 
-          <div class="hero">
-            <div class="hero_headings">
+          <div class="heading">
+            <div class="heading__title">
               <h1>
                 Build Smarter, Faster and More Connected Solutions
               </h1>
@@ -43,28 +64,25 @@
                 or improving decision-making, you’ll have the tools you need to build solutions 
                 that stay connected, efficient, and future-ready.
               </p>
-              <div class="hero_headings_btn">
+              <div class="heading__CTA">
                 <button>
                   Get started for free
                 </button>
-                <div class="hero_headings_btn_free-trial">
+                <div class="heading__free-trial">
                   <img src="./images/check.png" alt="check logo">
                   <h5>30 Days free trial</h5>
                 </div>
               </div>
             </div>
-            <!--<div class="object">
-              <canvas id="canvas3d"></canvas>
-            </div>-->
           </div>
         </section>  
       </section>
 
       <!--Sliding clients section-->
       <section class="clients">
-        <div class="clients_scroller">
+        <div class="clients__scroller">
           <h3>Trusted by Innovative teams worldwide</h3>
-          <div class="clients_scroller_inner">
+          <div class="clients__lists">
             <div> <img src="./images/1.png" alt="company-1"></div>
             <div><img src="./images/2.png" alt="company-2"></div>
             <div><img src="./images/3.png" alt="company-3"></div>
@@ -83,8 +101,8 @@
       <!--Features Section-->
       <section class="features" id="features">
         <h1>Powerful Features Built for Modern Teams</h1>
-        <div class="upper">
-          <div class="upper_feature">
+        <div class="features__upper">
+          <div class="features__upper--card">
             <img src="./images/smart-automation.png" alt="smart automation logo">
             <h2>
               Smart Automation
@@ -95,7 +113,7 @@
               work and accelerating overall productivity.
             </p>
           </div>
-          <div class="upper_feature">
+          <div class="features__upper--card">
             <img src="./images/real-analytics.png" alt="analytics logo">
             <h2>
               Real-Time Analytics
@@ -105,7 +123,7 @@
               and instant insights designed to keep your team informed and aligned at every moment.
             </p>
           </div>
-          <div class="upper_feature">
+          <div class="features__upper--card">
             <img src="./images/AI.png" alt="AI logo">
             <h2>
               AI-Powered Insights
@@ -116,8 +134,8 @@
             </p>
           </div>
         </div>
-        <div class="lower">
-          <div class="lower_feature">
+        <div class="features__lower">
+          <div class="feature__lower--card">
             <img src="./images/seamless.png" alt="smart automation logo">
             <h2>
               Seamless Integrations
@@ -128,7 +146,7 @@
               across platforms and streaming complex processes
             </p>
           </div>
-          <div class="lower_feature">
+          <div class="feature__lower--card">
             <img src="./images/security.png" alt="analytics logo">
             <h2>
               Enterprise-Grade Security
@@ -145,14 +163,14 @@
 
       <!--Solutions section-->
       <section class="solutions" id="solutions">
-        <div class="solutions_upper">
-          <div class="solutions_upper_video">
+        <div class="solutions__upper">
+          <div class="solutions__video">
             <video src="./videos/connected.mp4" autoplay muted loop type="video/mp4">video not supported</video>
           </div>
-          <div class="solutions_upper_description">
-            <div class="logo-description">
-              <img class="logo-pic" src="./images/clipboard-list.svg" alt="clipboard logo">
-              <div class="logo_description_solution">
+          <div class="solutions__lists">
+            <div class="solutions__description">
+              <img class="solutions__logo" src="./images/clipboard-list.svg" alt="clipboard logo">
+              <div class="solutions__card">
                 <h3>Tailored Solutions for Real-World Challenges</h3>
                 <p>Give your team tools built to solve actual day-to-day problems, 
                  from reducing manual work to streamlining complex processes  
@@ -160,20 +178,20 @@
                 </p>
               </div>
             </div> 
-            <div class="border"></div>
-            <div class="logo-description">
-              <img class="logo-pic" src="./images/chart-line-up.svg" alt="chart logo">
-              <div class="logo_description_solution">
+            <div class="solutions__border"></div>
+            <div class="solutions__description">
+              <img class="solutions__logo" src="./images/chart-line-up.svg" alt="chart logo">
+              <div class="solutions__card">
                 <h3>Designed to Support Every Part of Your Workflow</h3>
                 <p>Unify planning, execution, and collaboration with a single platform 
                   that keeps teams aligned, productive, and moving forward without friction.
                 </p>
               </div>
             </div> 
-            <div class="border"></div>
-            <div class="logo-description">
-              <img class="logo-pic" src="./images/brain-circuit.svg" alt="brain logo">
-              <div class="logo_description_solution">
+            <div class="solutions__border"></div>
+            <div class="solutions__description">
+              <img class="solutions__logo" src="./images/brain-circuit.svg" alt="brain logo">
+              <div class="solutions__card">
                 <h3>Smart Solutions That Drive Results</h3>
                 <p>Unlock intelligent automation and actionable insights that help your business
                    move faster, optimize decisions, and consistently achieve high-impact outcomes.
@@ -182,40 +200,40 @@
             </div> 
           </div>
         </div>
-        <div class="solutions_below">
-          <div class="solutions_below_img">
+        <div class="solutions__below">
+          <div class="solutions__img">
             <img src="./images/meeting.jpg" alt="meeting pic">
           </div>
-          <div class="solutions_below_description">
-            <div class="logo-description-below">
-              <div class="logo_description_solution">
+          <div class="solutions__lists">
+            <div class="solutions__description">
+              <div class="solutions__card">
                 <h3>Built to Solve the Problems That Matter Most</h3>
                 <p>Whether it’s efficiency, visibility, or scalability, 
                   our platform tackles your biggest challenges head-on, 
                   empowering you to work smarter and grow without limits.
                 </p>
               </div>
-              <img class="logo-pic" src="./images/money-check-edit-alt.svg" alt="money check logo">
+              <img class="solutions__logo" src="./images/money-check-edit-alt.svg" alt="money check logo">
             </div> 
-            <div class="border"></div>
-            <div class="logo-description-below">
-              <div class="logo_description_solution">
+            <div class="solutions__border"></div>
+            <div class="solutions__description">
+              <div class="solutions__card">
                 <h3>Solutions That Adapt to Your Business Needs</h3>
                 <p>Flexible, scalable, and customizable our tools evolve with your workflow, 
                   ensuring seamless performance whether you're a startup or an enterprise.
                 </p>
               </div>
-              <img class="logo-pic" src="./images/ruler-combined.svg" alt="ruler logo">
+              <img class="solutions__logo" src="./images/ruler-combined.svg" alt="ruler logo">
             </div> 
-            <div class="border"></div>
-            <div class="logo-description-below">
-              <div class="logo_description_solution">
+            <div class="solutions__border"></div>
+            <div class="solutions__description">
+              <div class="solutions__card">
                 <h3>Empowering Teams Across Every Function</h3>
                 <p>From operations to analytics, every team gets the right tools to collaborate, 
                   automate and innovate together, driving better results across the entire organization.
                 </p>
               </div>
-              <img class="logo-pic" src="./images/display-code.svg" alt="display code logo">
+              <img class="solutions__logo" src="./images/display-code.svg" alt="display code logo">
             </div> 
           </div>
         </div>
@@ -224,25 +242,25 @@
       <!--Counter Section-->
       <section>
         <div class="counters">
-          <div class="counters_container">
-            <div class="counter">
-              <span class="num" data-val="200">0</span>
-              <span class="text">Projects</span>
+          <div class="counters__container">
+            <div class="counters__card">
+              <span class="counters__num" data-val="200">0</span>
+              <span class="counters__text">Projects</span>
             </div>
-            <div class="counter_border"></div>
-            <div class="counter">
-              <span class="num" data-val="630">0</span>
-              <span class="text">Clients</span>
+            <div class="counters__border"></div>
+            <div class="counters__card">
+              <span class="counters__num" data-val="630">0</span>
+              <span class="counters__text">Clients</span>
             </div>
-            <div class="counter_border"></div>
-            <div class="counter">
-              <span class="num" data-val="450">0</span>
-              <span class="text">Experts</span>
+            <div class="counters__border"></div>
+            <div class="counters__card">
+              <span class="counters__num" data-val="450">0</span>
+              <span class="counters__text">Experts</span>
             </div>
-            <div class="counter_border"></div>
-            <div class="counter">
-              <span class="num" data-val="4">0</span>
-              <span class="text">Years of experience</span>
+            <div class="counters__border"></div>
+            <div class="counters__card">
+              <span class="counters__num" data-val="4">0</span>
+              <span class="counters__text">Years of experience</span>
             </div>
           </div>
         </div>
@@ -251,10 +269,10 @@
       <!--Choose Us Section-->
       <section class="choosing">
         <h1>Why Choose us</h1>
-        <div class="pinned_container_first">
-          <img class="bullet-pin" src="./images/bullet-pin.png" alt="bullet pin pic">
-          <div class="pinned_container_description">
-            <img class="pinned_container_description_img" src="./images/easy-learning.png" alt="chart pic">
+        <div class="choosing__first">
+          <img class="choosing__pin" src="./images/bullet-pin.png" alt="bullet pin pic">
+          <div class="choosing__description">
+            <img class="choosing__logo" src="./images/easy-learning.png" alt="chart pic">
             <h1>We Make Things Easy</h1>
             <p>
               From the first message to the final delivery, 
@@ -263,10 +281,10 @@
             </p>
           </div>
         </div>
-        <div class="pinned_container_second">
-          <img class="bullet-pin" src="./images/bullet-pin.png" alt="bullet pin pic">
-          <div class="pinned_container_description">
-            <img class="pinned_container_description_img" src="./images/built-just-for-you.png" alt="chart pic">
+        <div class="choosing__second">
+          <img class="choosing__pin" src="./images/bullet-pin.png" alt="bullet pin pic">
+          <div class="choosing__description">
+            <img class="choosing__logo" src="./images/built-just-for-you.png" alt="chart pic">
             <h1>Built Just for You</h1>
             <p>
               We listen to what you need and create solutions that fit your business 
@@ -275,10 +293,10 @@
             </p>
           </div>
         </div>
-        <div class="pinned_container_third">
-          <img class="bullet-pin" src="./images/bullet-pin.png" alt="bullet pin pic">
-          <div class="pinned_container_description">
-            <img class="pinned_container_description_img" src="./images/reliable.png" alt="chart pic">
+        <div class="choosing__third">
+          <img class="choosing__pin" src="./images/bullet-pin.png" alt="bullet pin pic">
+          <div class="choosing__description">
+            <img class="choosing__logo" src="./images/reliable.png" alt="chart pic">
             <h1>Modern, Fast & Reliable</h1>
             <p>
               Your website or product will look great, work smoothly on all devices,
@@ -286,10 +304,10 @@
             </p>
           </div>
         </div>
-        <div class="pinned_container_fourth">
-          <img class="bullet-pin" src="./images/bullet-pin.png" alt="bullet pin pic">
-          <div class="pinned_container_description">
-            <img class="pinned_container_description_img" src="./images/support.png" alt="chart pic">
+        <div class="choosing__fourth">
+          <img class="choosing__pin" src="./images/bullet-pin.png" alt="bullet pin pic">
+          <div class="choosing__description">
+            <img class="choosing__logo" src="./images/support.png" alt="chart pic">
             <h1>Support That Actually Cares</h1>
             <p>
               We’re here when you need us, ready to help, answer questions, and make 
@@ -300,19 +318,19 @@
       </section>
 
       <!--Video section-->
-      <section class="video_team">
-        <div class="video_team_meeting">
+      <section class="meeting">
+        <div class="meeting__clip">
           <video src="./videos/team-meeting.mp4" autoplay muted loop type="video/mp4">video not supported</video>
         </div>
       </section>
 
       <!--About Section-->
       <section class="about" id="about">
-        <div class="about_us">
-          <div class="about_us_description">
+        <div class="about__container">
+          <div class="about__description">
             <h1>With us, Visions come true!</h1>
             <div>
-              <div class="word_we"><h2>WE</h2></div>
+              <div class="about__we"><h2>WE</h2></div>
               <p>are a team dedicated to building modern, user-friendly digital experiences that help businesses work smarter 
                 and grow faster. Our focus is simple: create solutions that are easy to use, beautifully designed, and built to make 
                 a real difference in your daily workflow.
@@ -323,11 +341,11 @@
                 deas, and expertise that move your business forward — one smart solution at a time.
               </p>
             </div>
-            <div class="about_us_btn">
+            <div class="about__btn">
               <a href="#team"><button>Meet the Team</button></a>
             </div>
           </div>
-          <div class="about_us_pic">
+          <div class="about__pic">
             <img src="./images/people-gathered.jpg" alt="">
           </div>
         </div>
@@ -335,12 +353,12 @@
 
       <!--Team Section-->
       <section class="team" id="team">
-        <div class="card_container">
-          <div class="card">
-            <div class="img-box">
+        <div class="team__container">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/ceo.jpg" alt="ceo pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Emily Carter</h3>
               <h4>CEO</h4>
               <p>
@@ -351,11 +369,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/prduct-manager.jpg" alt="product manager pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Michael Reed</h3>
               <h4>Product Manager</h4>
               <p>
@@ -366,11 +384,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/front-end-developer.jpg" alt="front end developer pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Sophia Bennett</h3>
               <h4>Lead Frontend Developer</h4>
               <p>
@@ -381,11 +399,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/web-designer.jpg" alt="web designer pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Olivia Walker</h3>
               <h4>UX/UI Designer</h4>
               <p>
@@ -396,11 +414,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/back-end-engineer.jpg" alt="back end engineer pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>James Cooper</h3>
               <h4>Backend Engineer</h4>
               <p>
@@ -411,11 +429,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/marketing-manager.jpg" alt="marketing manager pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Rachel Harris</h3>
               <h4>Marketing Manager</h4>
               <p>
@@ -425,11 +443,11 @@
               </p>
             </div>
           </div>
-          <div class="card">
-            <div class="img-box">
+          <div class="team__card">
+            <div class="team__img">
               <img src="./images/customer-manager.jpg" alt="customer manager pic">
             </div>
-            <div class="content">
+            <div class="team__content">
               <h3>Daniel Brooks</h3>
               <h4>Customer Success Manager</h4>
               <p>
@@ -448,27 +466,27 @@
         <h2>
           Five Star Reviews Everywhere. Not Because We are Perfect, But Because We Always Make It Right!
         </h2>
-        <div class="divider"></div>
-        <div class="testimonials_stars-icon">
+        <div class="testimonials__divider"></div>
+        <div class="testimonials__stars">
           <img src="./images/star.png" alt="star icon">
           <img src="./images/star.png" alt="star icon">
           <img src="./images/star.png" alt="star icon">
           <img src="./images/star.png" alt="star icon">
           <img src="./images/star.png" alt="star icon">
         </div>
-        <div class="slider">
-          <button class="slider_nav prev">
-            <img class="slider_nav_arrow" src="./images/left-arrow.png">
+        <div class="testimonials__slider">
+          <button class="testimonials__nav prev">
+            <img class="testimonials__arrow" src="./images/left-arrow.png">
           </button>
-          <div class="slider_container">
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+          <div class="testimonials__container">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "This website is incredibly well-structured and fast. 
                   The animations feel smooth and professional, and the overall
                   UX makes our team want to redesign our own platform. Amazing work!"
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/girl-1.png" alt="girl avatar">
                 <div>
                   <h4>Aiden Clarke</h4>
@@ -476,14 +494,14 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "From the hero animation to the features section, the website feels 
                 premium. It delivers exactly what modern SaaS brands need — clarity, 
                 motion, and impact. Brilliant execution."
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/girl-2.png" alt="girl avatar">
                 <div>
                   <h4>Emily Zhao</h4>
@@ -491,14 +509,14 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "The smooth interactions and consistent styling show real craftsmanship. 
                 You made a complex design look simple and enjoyable. Easily one of the 
                 most polished templates I’ve seen."
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/girl-3.png" alt="girl avatar">
                 <div>
                   <h4>Daniel Reed</h4>
@@ -506,14 +524,14 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "I’m impressed by how everything responds perfectly on every device. 
                 The counters, transitions, and content flow make the site feel alive. 
                 Truly world-class work."
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/girl-4.png" alt="girl avatar">
                 <div>
                   <h4>Maya Hassan</h4>
@@ -521,14 +539,14 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "This template has the exact modern SaaS aesthetic clients want:
                  clean typography, strong visual hierarchy, and eye-catching animations. 
                  You nailed the balance between beauty and usability."
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/girl-5.png" alt="girl avatar">
                 <div>
                   <h4>Oliver Grant</h4>
@@ -536,14 +554,14 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 "The performance and code structure are solid. Lightweight, organized, 
                 and easy to customize. It’s rare to find a template that looks this good 
                 without sacrificing speed."
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-1.png" alt="man avatar">
                 <div>
                   <h4>Michael Carter</h4>
@@ -551,13 +569,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “The attention to detail is incredible. Clean code, responsive 
                 layout, and lightning-fast performance.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-2.png" alt="man avatar">
                 <div>
                   <h4>Sophia Martinez</h4>
@@ -565,13 +583,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “Our team was amazed at how polished and user-friendly 
                 the website is. It elevated our brand instantly.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-3.png" alt="man avatar">
                 <div>
                   <h4>Noah Williams</h4>
@@ -579,13 +597,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “I’ve tried many systems, but this one stands out. 
                 Simple, organized, and extremely professional.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-4.png" alt="man avatar">
                 <div>
                   <h4>Isabella Chen</h4>
@@ -593,13 +611,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “The UI design shows real expertise. Every interaction
                  feels smooth, natural, and intentional.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-5.png" alt="man avatar">
                 <div>
                   <h4>Benjamin Harris</h4>
@@ -607,13 +625,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “This website helped us build trust with our investors. 
                 Clean structure, bold visuals, and a great experience.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-6.png" alt="man avatar">
                 <div>
                   <h4>Harper Lewis</h4>
@@ -621,13 +639,13 @@
                 </div>
               </div>
             </div>
-            <div class="slider_container_box">
-              <img class="slider_container_box_quotes" src="./images/quotes.png">
+            <div class="testimonials__box">
+              <img class="testimonials__quotes" src="./images/quotes.png">
               <p>
                 “Very easy to navigate and perfectly structured. It 
                 communicates professionalism from the first glance.”
               </p>
-              <div class="slider_container_box_avatar-person">
+              <div class="testimonials__avatar">
                 <img src="./images/avatar/man-7.png" alt="man avatar">
                 <div>
                   <h4>Emma Johnson</h4>
@@ -636,18 +654,251 @@
               </div>
             </div>
           </div>
-          <button class="slider_nav next">
-            <img class="slider_nav_arrow" src="./images/right-arrow.png">
+          <button class="testimonials__nav next">
+            <img class="testimonials__arrow" src="./images/right-arrow.png">
           </button>
+        </div>
+        <div class="testimonials__bullets"></div>
+      </section>
+      
+      <!--Pricing-->
+      <section class="pricing" id="pricing">
+        <div class="pricing__container">
+          <div class="pricing__card">
+            <div class="pricing__tag">
+              <div>
+                <h4>Basic Plan</h4>
+                <h4>Ideal for small businesses</h4>
+              </div>
+              <h5>$<span>15</span>/month</h5>
+              <button>Select Plan</button>
+            </div>
+            <div class="pricing__description">
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Unified Dashboard</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Finance Mangement Module</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Inventory Control</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Basic reoprting & analytics</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>10 user accounts</h5>
+              </div>
+            </div>
+          </div>
+          <div class="pricing__card">
+            <div class="pricing__tag">
+              <div>
+                <h4>Business Plan</h4>
+                <h4>For growing businesses</h4>
+              </div>
+              <h5>$<span>59</span>/month</h5>
+              <button>Select Plan</button>
+            </div>
+            <div class="pricing__description">
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Everything in basic plan</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>HR & Payroll Module</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Sales & CRM Module</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Workflow Automation</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Advanced analytics & reporting</h5>
+              </div>
+            </div>
+          </div>
+          <div class="pricing__card">
+            <div class="pricing__tag">
+              <div>
+                <h4>Premium Plan</h4>
+                <h4>Ideal for enterprises seeking</h4>
+              </div>
+              <h5>$<span>99</span>/month</h5>
+              <button>Select Plan</button>
+            </div>
+            <div class="pricing__description">
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Everything in business plan</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Custom Integrations</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>AI-Driven recommendations</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Role based access control</h5>
+              </div>
+              <div class="pricing_list">
+                <img src="./images/check.png" alt="check logo">
+                <h5>Unlimited user accounts</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!--FAQ-->
+      <section class="accordion">
+        <div class="accordion__container">
+          <h2>FAQ</h2>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>What makes your platform different from other SaaS tools?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                Our platform combines automation, analytics, and smart workflows into 
+                one unified system. Instead of switching between multiple tools, you get 
+                everything in a single dashboard designed for speed, clarity, and real-world 
+                efficiency.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Is the platform suitable for small teams or only large companies?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Both. Whether you’re a solo founder, a growing startup, or an enterprise, 
+                  the platform scales with your needs. You only pay for what you use, and you can 
+                  upgrade or downgrade anytime.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Do I need technical experience to use it?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Not at all. The interface is built for non-technical users — 
+                  no coding or setup required. Everything is guided, intuitive, and optimized for fast onboarding.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Can I integrate this with the tools my team already uses?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Yes. The platform supports integrations with popular apps like Slack, Google Workspace, 
+                  Notion, HubSpot, Stripe, and more. Custom integrations can also be set up through our API.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Do you offer customer support if we get stuck?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Absolutely. You get 24/7 support through live chat, email, 
+                  and knowledge base articles. Premium plans also include a dedicated account manager.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Is there a free trial available?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Yes — you can try the full platform risk-free for 
+                  14 days. No credit card required. If you love it, upgrading takes just one click.
+              </p>
+            </div>
+          </div>
+          <div class="accordion__box">
+            <div class="accordion__label">
+              <h4>Can my team collaborate in real-time on the platform?</h4>
+            </div>
+            <div class="accordion__content">
+              <p class="accordion__answer">
+                  Yes. Your entire team can work together simultaneously with real-time updates,
+                   shared dashboards, role-based permissions, and activity tracking. Everyone stays
+                    aligned without needing extra communication tools.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-    
-    <script src="./script.js" type="module">
-      import { Application } from './runtime.js';
-      const canvas = document.getElementById('canvas3d');
-      const app = new Application(canvas, {wasmPath: '/' });
-      app.load('./scene.splinecode');
-    </script>
+      <!--Footer-->
+      <footer>
+        <div class="footer__email">
+          <h4>Stay Connected</h4>
+          <div class="footer__join">
+            <form action="#">
+              <input type="text" placeholder="Email Address">
+            </form>
+            <button>
+              Join
+            </button>
+          </div>
+          <p>
+            If you have any questions, need support, or want to explore how our solutions can 
+            help your business grow, feel free to reach out to us anytime. Our team is always 
+            here to assist you, provide guidance, and ensure you get the most out of our platform. 
+            We aim to respond as quickly as possible and look forward to hearing from you.
+          </p>
+        </div>
+        <div class="footer__address">
+          <div class="footer__list">
+            <img src="./images/logo.png" alt="logo">
+            <h4>Contact Us</h4>
+            <div>
+              <h5>Office: (123)456-789</h5>
+              <h5>Fax: (123)456-789</h5>
+            </div>
+            <div>
+              <h5>1000 W. Street Dr.</h5>
+              <h5>City,State postal Code</h5>
+              <h5>Mon-Fri</h5>
+              <h5>P.O 123456</h5>
+            </div>
+          </div>
+          <div class="footer__links">
+            <a href="#"><img src="./images/facebook.png" alt=""></a>
+            <a href="#"><img src="./images/linkedin.png" alt=""></a>
+            <a href="#"><img src="./images/instagram.png" alt=""></a>
+            <a href="#"><img src="./images/twitter.png" alt=""></a>
+          </div>
+        </div>
+      </footer>
+      <hr>
+
+      <div class="footer__copyright">
+        <h5>&copy;2026 <span>Spark</span> All right reserved</h5>
+      </div>
+      
+    <script src="./script.js"></script>
   </body>
 </html>
