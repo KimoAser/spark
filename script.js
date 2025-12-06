@@ -71,7 +71,7 @@ navItem.forEach(link=>{
         closeMenu(()=>{
             hamburger.classList.remove('click')
             document.querySelector(targetID).scrollIntoView({
-                behavior: "smooth"
+                behavior: "smooth",
             });
         })
     })
@@ -321,3 +321,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         }, 10);
     });
 });
+
+
+

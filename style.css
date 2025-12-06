@@ -865,6 +865,9 @@ body {
 
 
 /*Team Section*/
+.team{
+    scroll-margin-top: 5rem;
+}
 .team__container {
     display: flex;
     justify-content: center;
