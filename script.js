@@ -1,3 +1,4 @@
+const navHeader = document.querySelector('.nav')
 const logo = document.querySelector('.nav__logo')
 const menu = document.querySelector('.nav__menu')
 const hamburger = document.querySelector('.nav__button')
@@ -16,11 +17,29 @@ const btnPrv = document.querySelector('.prev')
 const btnNext = document.querySelector('.next')
 const bulletContainer = document.querySelector('.testimonials__bullets')
 const accordion = document.getElementsByClassName ('accordion__box');
+const emailEntered = document.querySelector('.footer__entered--email')
+const emailError = document.querySelector('.footer__unvalid')
+const emailSuccess = document.querySelector('.footer__valid')
+const join = document.querySelector(".join")
 
 
 let valueDisplays = document.querySelectorAll(".counters__num")
 let currentIndex = 0
 let isForward = true
+
+
+/*--Navigation Header--*/
+const scrollWatcher = document.createElement('div')
+scrollWatcher.setAttribute('data-scroll-watcher','')
+navHeader.before(scrollWatcher)
+const navObserver = new IntersectionObserver((entries)=>{
+    navHeader.classList.toggle('sticking', !entries[0].isIntersecting)
+})
+navObserver.observe(scrollWatcher)
+window.addEventListener("load", () => {
+    const visible = scrollWatcher.getBoundingClientRect().top >= 0;
+    navHeader.classList.toggle('sticking', !visible);
+});
 
 
 /*--burger navigation--*/
@@ -66,9 +85,6 @@ function closeMenu(callback){
     })
     logo.style.visibility = 'visible'
 }
-
-
-
 
 
 /*--hero section--*/ 
@@ -175,7 +191,7 @@ pinObserveThird.observe(thirdPin);
 pinObserveFourth.observe(fourthPin);
 
 
-/*testimonials section*/
+/*--testimonials section--*/
 function updateSlider(){
     const cardWidth = boxes[0].getBoundingClientRect().width
     const styles = window.getComputedStyle(track)
@@ -274,9 +290,34 @@ track.addEventListener('mouseleave',()=>{
 })
 
 
-/*FAQ*/ 
+/*--FAQ--*/ 
 for (i=0; i<accordion.length; i++){
     accordion[i].addEventListener('click',function(){
         this.classList.toggle('active')
     })
 }
+
+
+/*--Email Submit--*/
+join.addEventListener('click',()=>{
+    const emailName = emailEntered.value.trim()
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValid.test(emailName)) {
+        emailError.style.display = "block"
+        emailSuccess.style.display = 'none'
+    }
+    else {
+        emailSuccess.style.display = 'block'
+        emailError.style.display = "none"
+    }
+})
+
+
+/*--Refreshing the Page--*/
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", () => {
+        setTimeout(() => {
+            window.history.replaceState(null, null, window.location.pathname);
+        }, 10);
+    });
+});
