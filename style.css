@@ -864,7 +864,7 @@ body {
 }
 
 
-/*Team Section*/
+/*Team Section
 .team{
     scroll-margin-top: 5rem;
 }
@@ -899,7 +899,7 @@ body {
     object-fit: cover;
     transition: 0.5s;
     will-change: opacity, transform;
-    transform: translateZ(0); /* Create its own GPU layer */
+    transform: translateZ(0); 
     backface-visibility: hidden;
     content-visibility: visible;
 }
@@ -949,7 +949,7 @@ body {
 }
 .team__card:hover .team__content p {
     opacity: 1;
-}
+}*/
 
 /*Testimonials*/
 .testimonials {
